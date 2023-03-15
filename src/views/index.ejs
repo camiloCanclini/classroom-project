@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include('layouts/head', {title: "ClassRoom"}) %>
-    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body >
     <nav class="navbar navbar-expand-lg bg-gradient bg-success text-white fixed-top ">
@@ -11,7 +11,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa-solid fa-bars"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse " id="navbarNav">
                 <ul class="navbar-nav gap-2 w-100">
                     <li class="nav-item text-center ">
                     <a class="nav-link active text-white" aria-current="page" href="#">Cursos</a>
@@ -32,7 +32,7 @@
         </div>
     </nav>
     <!-- Notices Carousel -->
-    <div id="carouselExampleCaptions" class="carousel slide">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -73,8 +73,37 @@
     <!-- Main Container -->
     <div class="container-sm --bs-body-color my-3  d-flex main-container">
         <div class="row flex-grow-1">
-            <div class="col border mx-2 rounded fs-1 shadow">Trabajos Prácticos</div>
-            <div class="col-3 border mx-2 rounded fs-1 shadow">Cursos</div>
+          <!-- Left Container-->
+          <div class="col border m-2 p-4 rounded fs-1 shadow-sm animate__animated animate__fadeInLeft">
+            <div class="my-3">
+              Trabajos Prácticos
+            </div>
+            <% for( let index = 0; index < 4; index++ ) { %>
+              <%- include('partials/card_home_works', {cardTitle: "tituloTarea", cardInfo:"Esta es la tarea de la semana", updateAt: "viernes 2 de marzo", deadline:"lunes 5 de marzo"}) %>
+              <% } %>
+            </div>
+            <!-- Right Container-->
+            <div class="col-5 animate__animated animate__fadeInRight">
+              <div class="col border my-2 p-4 rounded fs-1 shadow-sm">
+                <div class="my-3">
+                  Cursos
+                </div>
+                <% for( let index = 0; index < 4; index++ ) { %>
+                  <%- include('partials/card_courses', {cardInfo: "Matemática", cardTitle:"Lorena Cofre - Profesora"}) %>
+                <% } %>
+              </div>
+              <div class="col border my-2 p-4 rounded fs-1 shadow-sm">
+                <div class="my-3">
+                  Eventos
+                </div>
+                <div class="card border-success mb-3">
+                  <div class="card-header fs-3">Header</div>
+                  <div class="card-body text-success">
+                    <p class="card-text fs-5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                </div>
+              </div>              
+            </div>
         </div>
     </div>
     <footer class="bg-dark text-light py-3">

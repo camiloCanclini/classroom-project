@@ -1,0 +1,56 @@
+:root{
+    --navbar-height: 7vh;
+    --navbar-padding: .6em;
+}
+
+.navbar{
+    height: var(--navbar-height);
+    padding: var(--navbar-padding);
+    box-sizing: border-box;
+}
+
+.navbar-toggler {
+    box-shadow: none !important;
+    border: none !important;
+    height: 100% !important;
+    font-size: 2em;
+}
+.navbar-toggler > i {
+    color: white !important;
+    height: 100%;
+} 
+.navbar-collapse.collapse.show > ul > .nav-item.ms-auto{
+    margin: auto !important;
+    flex-direction: column-reverse;
+}
+.carousel{
+    margin-top: var(--navbar-height);
+    width: 100%;
+    height: 42vh;
+}
+.carousel-inner{
+    height: 100%;
+}
+.carousel-inner > *{
+    height: 100%;
+}
+.carousel-inner img{
+    height: 100%;
+    object-fit: cover;
+    filter: blur(2px);
+}
+
+.carousel-caption{
+    top: 0;
+    bottom: 0;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.main-container{
+    min-height: 70vh;
+}

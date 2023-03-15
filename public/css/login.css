@@ -1,45 +1,13 @@
-.navbar-toggler {
-    box-shadow: none !important;
-    border: none !important;
-    height: 100% !important;
-    font-size: 2em;
-}
-.navbar-toggler > i {
-    color: white !important;
-    height: 100%;
-} 
-.navbar-collapse.collapse.show > ul > .nav-item.ms-auto{
-    margin: auto !important;
-    flex-direction: column-reverse;
-}
-.carousel{
-    margin-top: 3vh;
-    width: 100%;
-    height: 30vh;
-}
-.carousel-inner{
-    height: 100%;
-}
-.carousel-inner > *{
-    height: 100%;
-}
-.carousel-inner img{
-    height: 100%;
-    object-fit: cover;
-    filter: blur(2px);
+body{
+    background: #56ab2f;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #a8e063, #56ab2f);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #a8e063, #56ab2f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+       
 }
 
-.carousel-caption{
-    top: 0;
-    bottom: 0;
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
+main{
+    height: 100vh;
+    display: flex;
     align-items: center;
-    font-size: 1.2em;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-}
-
-.main-container{
-    min-height: 70vh;
+    justify-content: center;
 }
