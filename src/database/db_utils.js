@@ -5,7 +5,7 @@ const pool = require('./db_config')
  *
  * @param {String} email - email user.
  * @param {String} pass - password user.
- * @returns {Boolean} - True or False.
+ * @returns {Object} - Info User
  */
 
 exports.findUser = async (email, pass) => {
@@ -17,14 +17,14 @@ exports.findUser = async (email, pass) => {
     .then((res) => {
       //console.log(res.rows[0])
       if (res.rows.length == 1) {
-        return true
+        return {exists:true, id: res.rows[0].id, name: res.rows[0].name}
       }else{
-        return false
+        return {exists:false}
       }
-    }) // brianc
+    }) 
     .catch((err) => {
       console.error('Error executing query', err.stack)
-      return false
+      return {exists:false}
     })
   
 };

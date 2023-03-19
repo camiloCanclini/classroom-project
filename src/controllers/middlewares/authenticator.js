@@ -8,12 +8,14 @@ const secret = process.env.JWT_SECRET
 
 
 exports.isAuth = (req, res, next) => {
-    const token = req.cookies.token;
+    console.log('cookies del cliente:');
+    console.log(req.cookies);
+    const token = req.cookies.token_classroom;
     if (!token) {
       console.log('Token No encontrado');
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
       return res.render('login');
     }
-
     const verify = promisify(jwt.verify)
     verify(token, secret)
     .then(deco => next())
