@@ -18,7 +18,11 @@ exports.isAuth = (req, res, next) => {
     }
     const verify = promisify(jwt.verify)
     verify(token, secret)
-    .then(deco => next())
+    .then(deco => {
+      console.log(deco);
+      req.id_user = deco.id;  
+      next()
+    })
     .catch(err => {
       console.log('Token Incorrecto');
       res.clearCookie('token')
@@ -26,16 +30,3 @@ exports.isAuth = (req, res, next) => {
     })
 };
 
-/*
-exports.loginUser = (req, res, next) =>{
-    const token = req.cookies.token
-    if (token) {
-        const verifyToken = promisify(jwt.verify);
-        verifyToken(token, secret)
-            .then(deco=>console.log(deco))
-            .catch(err=>console.log(err))
-    }else{
-        
-    }
-}
-*/

@@ -5,13 +5,13 @@
     <link rel="stylesheet" href="./css/index.css">
 </head>
 <body >
-    <nav class="navbar navbar-expand-lg bg-gradient bg-success text-white fixed-top ">
-        <div class="container-fluid">
-            <img src="./icons/logo.svg" height="40" class="me-4">
+    <nav class="navbar navbar-expand-lg bg-success text-white fixed-top">
+        <div class="container-fluid p-0">
+            <img src="./icons/logo.svg" height="40" class="mx-3">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa-solid fa-bars"></i>
             </button>
-            <div class="collapse navbar-collapse " id="navbarNav">
+            <div class="collapse navbar-collapse bg-success fs-6" id="navbarNav">
                 <ul class="navbar-nav gap-2 w-100">
                     <li class="nav-item text-center ">
                     <a class="nav-link active text-white" aria-current="page" href="#">Cursos</a>
@@ -22,16 +22,26 @@
                     <li class="nav-item text-center">
                     <a class="nav-link text-white" href="#">Noticias</a>
                     </li>
-                    <a class="btn btn-danger" href="/logout" role="button">Logout</a>
-                    <a class="nav-item text-center d-flex align-items-center ms-auto text-decoration-none" href="#">
-                        <span class="nav-link text-white me-2 " href="#">Usuario</span>
-                        <img class="rounded-circle" src="./imgs/user.jpeg" alt="userImage" height="40">
+                    <a class="nav-item text-center d-flex align-items-center ms-auto text-decoration-none" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                        <span class="nav-link text-white" href="#">Usuario</span>
+                        <img class="rounded-circle me-3" src="./imgs/user.jpeg" alt="userImage" height="45">
                     </a>
                 </ul>
                 
             </div>
         </div>
     </nav>
+    <div class="offcanvas offcanvas-end bg-success" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column align-items-center">
+        <img class="rounded-circle shadow mb-3" src="./imgs/user.jpeg" alt="userImage" height="180">
+        <span class="text-white mb-3" href="#">Nombre Completo Usuario</span>
+        <a class="text-decoration-none text-white fs-5 rounded p-2" href="#">Editar Perfil</a>
+        <a class="btn btn-danger mt-auto w-100 p-2 fs-4 font-monospace" href="/logout" role="button">Logout</a>
+      </div>
+    </div>    
     <!-- Notices Carousel -->
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">

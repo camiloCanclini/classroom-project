@@ -18,8 +18,10 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use(cookieParser())
 
+
 // Routes Configuration
 app.use('/',require('./src/routes/userRouter.js')) // Users Routes
+
 app.use(require('./src/controllers/handlers/404')); // Unrecognized Route (404)
 
 app.listen(portServer, () => console.log('Server in port: http://localhost:'+ portServer))

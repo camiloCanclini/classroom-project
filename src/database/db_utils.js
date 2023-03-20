@@ -28,3 +28,19 @@ exports.findUser = async (email, pass) => {
     })
   
 };
+
+exports.verifyUserRole = async (id) =>{
+  const query = {
+    text: 'SELECT roles FROM users INNER JOIN user_types ON users.fk_user_type_id = user_types.id WHERE users.id = $1;',
+    values: [id],
+  };
+  return pool.query(query)
+    .then((res) => {
+      //console.log(res.rows[0])
+      return role = res.rows[0].roles
+    }) 
+    .catch((err) => {
+      console.error('Error executing query', err.stack)
+      return {exists:false}
+    })
+}

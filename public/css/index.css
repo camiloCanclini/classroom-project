@@ -5,7 +5,7 @@
 
 .navbar{
     height: var(--navbar-height);
-    padding: var(--navbar-padding);
+    *padding: var(--navbar-padding);
     box-sizing: border-box;
 }
 
@@ -18,10 +18,34 @@
 .navbar-toggler > i {
     color: white !important;
     height: 100%;
+}
+.navbar-collapse.collapsing > ul{
+    flex-direction: column-reverse;
+} 
+.navbar-collapse.collapse.show > ul{
+    flex-direction: column-reverse;
 } 
 .navbar-collapse.collapse.show > ul > .nav-item.ms-auto{
     margin: auto !important;
     flex-direction: column-reverse;
+}
+.navbar-collapse.collapsing > ul > .nav-item.ms-auto{
+    margin: auto !important;
+    flex-direction: column-reverse;
+}
+.navbar-collapse.collapse.show > ul > .nav-item.ms-auto{
+    margin: auto !important;
+    flex-direction: column-reverse;
+}
+.navbar-collapse.collapse.show > ul img{
+    margin: 0 !important;
+}
+.navbar-collapse.collapsing > ul img{
+    margin: 0 !important;
+}
+.navbar-collapse.collapse.show > ul, .navbar-collapse.collapsing > ul {
+    padding: 30px;
+    font-size: 1.3em;
 }
 .carousel{
     margin-top: var(--navbar-height);

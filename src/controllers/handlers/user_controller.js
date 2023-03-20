@@ -2,6 +2,19 @@ const dbUtil = require('../../database/db_utils');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv').config();
 
+exports.viewToShow = async (req,res)=>{
+    const role = await dbUtil.verifyUserRole(req.id_user)
+    console.log(role)
+    if (role === 'admin') {
+        return res.render('admin/index')
+    } else {
+        if (role === 'teacher') {
+            return res.render('500.ejs')
+        }else{
+            return res.render('index')
+        }
+    }
+}
 
 exports.login = async(req, res)=>{
 
@@ -23,8 +36,10 @@ exports.login = async(req, res)=>{
                 tokenCookie = jwt.sign({id:user.id, name: user.name},process.env.JWT_SECRET)
                 console.log(tokenCookie);
                 res.cookie('token_classroom', tokenCookie, {httpOnly: true})
+                res.redirect('/')
+            }else{
+                res.render('index')
             }
-            res.redirect('/')
         }else{
             res.render('login',{alert:'error'})
         }
